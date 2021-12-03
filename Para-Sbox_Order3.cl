@@ -10,6 +10,14 @@ share[n] preshare(private k) {
     }
     return x;
 }
+internal[4] NOT(internal[4] a) {
+    internal[4] res;
+    res[0] = ~ a[0];
+    res[1] = a[1];
+    res[2] = a[2];
+    res[3] = a[3];
+    return res;
+}
 internal[n] SecMult(share[n] a, share[n] b) {
 	internal[n] c;
 	int i;
@@ -196,7 +204,12 @@ internal[n] sbox(internal[8][n] a) {
    internal t121 = XOR(t111, t118);
    internal t122 = XOR(t102, t117);
 
-   return t122;
+   internal t123 = NOT(t115);
+   internal t124 = NOT(t116);
+   internal t125 = NOT(t121);
+   internal t126 = NOT(t122);
+
+   return t126;
 
 }
 
