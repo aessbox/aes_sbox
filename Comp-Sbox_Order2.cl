@@ -11,6 +11,14 @@ share[n] preshare(private k) {
     return x;
 }
 
+internal[3] NOT(internal[3] a) {
+    internal[3] res;
+    res[0] = ~ a[0];
+    res[1] = a[1];
+    res[2] = a[2];
+    return res;
+}
+
 internal[3] compression(internal[3] a, internal[3] b) {
     random r0;
     random r1;
@@ -171,7 +179,12 @@ internal[n] sbox(internal[8][n] a) {
    internal t121 = XOR(t111, t118);
    internal t122 = XOR(t102, t117);
 
-   return t122;
+   internal t123 = NOT(t115);
+   internal t124 = NOT(t116);
+   internal t125 = NOT(t121);
+   internal t126 = NOT(t122);
+
+   return t126;
 
 }
 
